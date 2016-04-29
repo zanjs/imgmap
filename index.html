@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>图片热链接在线编辑</title>
     <link rel="shortcut icon" href="/favicon.ico" />
+    <!--<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/highlight.min.js"></script>-->
     <link href="./build/css/app.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
@@ -20,9 +22,9 @@
         </h1>
         <nav id="nav" class="clearfix">
             <ul>
-                <li id="save"><a href="#">保存</a></li>
-                <li id="load"><a href="#">加载</a></li>
-                <li id="from_html"><a href="#">输入html代码</a></li>
+                <li id="save"><a href="#">存档</a></li>
+                <li id="load"><a href="#">加载存档</a></li>
+                <li id="from_html"><a href="#">导入html代码</a></li>
                 <li id="rect"><a href="#">长方形</a></li>
                 <li id="circle"><a href="#">圆形</a></li>
                 <li id="polygon"><a href="#">多边形</a></li>
@@ -32,6 +34,7 @@
                 <li id="clear"><a href="#">清除</a></li>
                 <li id="new_image"><a href="#">新建</a></li>
                 <li id="show_help"><a href="#">使用帮助？</a></li>
+                <li class="slider"></li>
             </ul>
         </nav>
         <div id="coords"></div>
@@ -45,13 +48,14 @@
     </div>
 </div>
 
-<!-- For html image map code -->
+<!-- 导出 图片地图的html代码 -->
 <div id="code">
     <span class="close_button" title="close"></span>
-    <div id="code_content"></div>
+    <div id="code_content">
+    </div>
 </div>
 
-<!-- Edit details block -->
+<!-- 编辑详情  -->
 <form id="edit_details">
     <h5>选取属性</h5>
     <span class="close_button" title="close"></span>
@@ -70,25 +74,25 @@
     <button id="save_details">保存</button>
 </form>
 
-<!-- From html block -->
+<!-- 导入html代码 -->
 <div id="from_html_wrapper">
     <form id="from_html_form">
-        <h5>加载选区</h5>
+        <h5>导入选区</h5>
         <span class="close_button" title="close"></span>
         <p>
-            <label for="code_input">输入您的html代码:</label>
+            <label for="code_input">输入要导入的html代码:</label>
             <textarea id="code_input"></textarea>
         </p>
-        <button id="load_code_button">加载</button>
+        <button id="load_code_button">导入</button>
     </form>
 </div>
   
-<!-- Get image form -->
+<!-- 获取图片区域 -->
 <div id="get_image_wrapper">
     <div id="get_image">
         <span title="close" class="close_button"></span>
         <div id="logo_get_image">
-            favicon.ico
+            
         </div>
         <div id="loading">加载</div>
         <div id="file_reader_support">
@@ -97,9 +101,8 @@
                 <span class="clear_button" title="clear">x</span> 
                 <img src="" alt="preview" id="sm_img" />
             </div>
-            <b>或者</b>
         </div>
-        <label for="url">键入图片地址</label>
+        <label for="url">或者输入图片地址</label>
         <span id="url_wrapper">
             <span class="clear_button" title="clear">x</span>
             <input type="text" id="url" />
@@ -108,7 +111,7 @@
     </div>
 </div>
 
-<!-- Help block -->
+<!-- 帮助信息 -->
 <div id="overlay"></div>
 <div id="help">
     <span class="close_button" title="close"></span>
@@ -137,10 +140,12 @@
             <p><span class="key">&rarr;</span> &mdash; 向右移动所选区域</p>
         </section>
     </div>
-    <footer>
-       
+    <footer class="footer">
+       @Julian
     </footer>
 </div>
+<script type="text/javascript" src="./build/js/P.js"></script>
 <script type="text/javascript" src="./build/js/app.js"></script>
+
 </body>
 </html>

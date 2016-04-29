@@ -1,7 +1,6 @@
-
 'use strict';
 
-var julianImageMapCreator = (function() {
+var JuLianImageMap = (function() {
 
     /* Utilities */
     var utils = {
@@ -484,13 +483,19 @@ var julianImageMapCreator = (function() {
         
         // Will moved from the main module
         var localStorageWrapper = (function() {
-            var KEY_NAME = 'JulianImageMapCreator';
+            var KEY_NAME = 'JuLianImageMap';
             
             return {
                 save : function() {
                     window.localStorage.setItem(KEY_NAME, areasIO.toJSON());
                 
-                    alert('Saved');
+                   
+                    PL.open({
+                        content: '保存完成',
+                        time: 2
+                    });
+                    
+                    
                 },
                 restore : function() {
                     areasIO.fromJSON(window.localStorage.getItem(KEY_NAME));
@@ -544,7 +549,7 @@ var julianImageMapCreator = (function() {
                     info.unload();
                     app.setShape(null);
                     utils.hide(domElements.svg);
-                    map.innerHTML = app.getHTMLCode();
+                    domElements.map.innerHTML = app.getHTMLCode();
                     code.print();
                     return this;
                 };
@@ -734,6 +739,7 @@ var julianImageMapCreator = (function() {
             
         return {
             print: function() {
+                console.log(app.getHTMLCode(true));
                 content.innerHTML = app.getHTMLCode(true);
                 utils.show(block);
             },
@@ -1261,15 +1267,22 @@ var julianImageMapCreator = (function() {
         }
         
         function onClearButtonClick(e) {
-            // Clear all
-            if (confirm('Clear all?')) {
+           
+         var index =  PL.open({
+            title: '',
+            content: '您确定要清除所有绘制吗？',
+            btn: ['是的', '不要'],
+            yes: function(index){
                 app.setMode(null)
                     .setDefaultClass()
                     .setShape(null)
                     .clear()
                     .hidePreview();
                 deselectAll();
+                
+                PL.close(index);
             }
+          });            
             
             e.preventDefault();
         }
