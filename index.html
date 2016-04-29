@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>图片热链接在线编辑</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link href="./build/css/app.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+<noscript>
+    <div id="noscript">
+        请在浏览器 启用JavaScript
+    </div>
+</noscript>
+<div id="wrapper">
+    <header id="header">
+        <h1 id="logo">
+            <a href="#">   
+            </a>
+        </h1>
+        <nav id="nav" class="clearfix">
+            <ul>
+                <li id="save"><a href="#">保存</a></li>
+                <li id="load"><a href="#">加载</a></li>
+                <li id="from_html"><a href="#">输入html代码</a></li>
+                <li id="rect"><a href="#">长方形</a></li>
+                <li id="circle"><a href="#">圆形</a></li>
+                <li id="polygon"><a href="#">多边形</a></li>
+                <li id="edit"><a href="#">编辑属性</a></li>
+                <li id="to_html"><a href="#">生成html代码</a></li>
+                <li id="preview"><a href="#">预览</a></li>
+                <li id="clear"><a href="#">清除</a></li>
+                <li id="new_image"><a href="#">新建</a></li>
+                <li id="show_help"><a href="#">使用帮助？</a></li>
+            </ul>
+        </nav>
+        <div id="coords"></div>
+        <div id="debug"></div>
+    </header>
+    <div id="image_wrapper">
+        <div id="image">
+            <img src="" alt="#" id="img" />
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.2" baseProfile="tiny" id="svg"></svg>
+        </div>
+    </div>
+</div>
+
+<!-- For html image map code -->
+<div id="code">
+    <span class="close_button" title="close"></span>
+    <div id="code_content"></div>
+</div>
+
+<!-- Edit details block -->
+<form id="edit_details">
+    <h5>选取属性</h5>
+    <span class="close_button" title="close"></span>
+    <p>
+        <label for="href_attr">链接(href)</label>
+        <input type="text" id="href_attr" />
+    </p>
+    <p>
+        <label for="alt_attr">alt</label>
+        <input type="text" id="alt_attr" />
+    </p>
+    <p>
+        <label for="title_attr">title</label>
+        <input type="text" id="title_attr" />
+    </p>
+    <button id="save_details">保存</button>
+</form>
+
+<!-- From html block -->
+<div id="from_html_wrapper">
+    <form id="from_html_form">
+        <h5>加载选区</h5>
+        <span class="close_button" title="close"></span>
+        <p>
+            <label for="code_input">输入您的html代码:</label>
+            <textarea id="code_input"></textarea>
+        </p>
+        <button id="load_code_button">加载</button>
+    </form>
+</div>
+  
+<!-- Get image form -->
+<div id="get_image_wrapper">
+    <div id="get_image">
+        <span title="close" class="close_button"></span>
+        <div id="logo_get_image">
+            favicon.ico
+        </div>
+        <div id="loading">加载</div>
+        <div id="file_reader_support">
+            <label>拖动图片到这里</label>
+            <div id="dropzone">
+                <span class="clear_button" title="clear">x</span> 
+                <img src="" alt="preview" id="sm_img" />
+            </div>
+            <b>或者</b>
+        </div>
+        <label for="url">键入图片地址</label>
+        <span id="url_wrapper">
+            <span class="clear_button" title="clear">x</span>
+            <input type="text" id="url" />
+        </span>
+        <button id="button">确认</button>
+    </div>
+</div>
+
+<!-- Help block -->
+<div id="overlay"></div>
+<div id="help">
+    <span class="close_button" title="close"></span>
+    <div class="txt">
+        <section>
+            <h2>主要快捷键</h2>
+            <p><span class="key">F5</span> &mdash; 重新加载页面，并再次显示加载图像的形式</p>
+            <p><span class="key">S</span> &mdash; 保存地图 的 PARAMS 到 本地</p>
+        </section>
+        <section>
+            <h2>绘图模式 (长方形 / 圆形 / 多边形)</h2>
+            <p><span class="key">ENTER</span> &mdash; 停止多边形绘图（或单击第一个帮手）</p>
+            <p><span class="key">ESC</span> &mdash; 取消新区绘图</p>
+            <p><span class="key">SHIFT</span> &mdash; 在绘制多边形断点结束绘制下一条边</p>
+        </section>
+        <section>
+            <h2>编辑模式</h2>
+            <p><span class="key">DELETE</span> &mdash; 删除选定区域</p>
+            <p><span class="key">ESC</span> &mdash; 取消选定区域的编辑</p>
+            <p><span class="key">SHIFT</span> &mdash; 编辑并保存为矩形比例</p>
+            <p><span class="key">I</span> &mdash; 选定区域的编辑属性（或一个地区DBL点击）</p>
+            <p><span class="key">CTRL</span> + <span class="key">C</span> &mdash; 拷贝所选区域</p>
+            <p><span class="key">&uarr;</span> &mdash; 向上移动所选区域</p>
+            <p><span class="key">&darr;</span> &mdash; 向下移动所选区域</p>
+            <p><span class="key">&larr;</span> &mdash; 向左移动所选区域</p>
+            <p><span class="key">&rarr;</span> &mdash; 向右移动所选区域</p>
+        </section>
+    </div>
+    <footer>
+       
+    </footer>
+</div>
+<script type="text/javascript" src="./build/js/app.js"></script>
+</body>
+</html>
