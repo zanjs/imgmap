@@ -10,12 +10,13 @@
     font-size: 16px;
     text-align: center;
     background: #FFF;
-    padding: 20px 30px;
+    padding: 0px 30px;
+    padding-bottom: 30px;
     position: relative;
     label {
         display: block;
         margin-bottom: 5px;
-        padding-top: 30px;
+        padding-top: 20px;
     }
     
 }
@@ -24,16 +25,14 @@
     box-shadow: 0 0 1px #EEE inset;
     border-radius: 2px;
 }
-#logo_get_image {
-    margin-bottom: 20px;
-}
+
 
 #button {
     margin-top: 20px;
     border: none;
     display: inline-block;
     padding: 5px 20px;
-    background: #E95546;
+    background: #FF9C08;
     font-size: 16px;
     text-align: center;
     color: #fff;

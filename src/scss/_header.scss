@@ -29,7 +29,7 @@
     }
 }
 #logo a:link, #logo a:visited {
-    color: #32c832;
+    color: #FF9C08;
 }
 #nav{
     display: inline;
@@ -56,14 +56,14 @@
         color: #FFF;
     }
     a:hover, #nav a:active {
-        border: 1px solid #32c832;
-        color: #32c832;
+        border: 1px solid #FF9C08;
+        color: #FF9C08;
     }
     a:active,.selected a {
-        background: #E95546;
+        background: #FF9C08;
         color: #FFF;
         box-shadow: 0 0 1px #222 inset;
-        border: 1px solid #E95546;
+        border: 1px solid #FF9C08;
     }
     
 } 

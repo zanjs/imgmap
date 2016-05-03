@@ -491,7 +491,7 @@ var JuLianImageMap = (function() {
                 
                    
                     PL.open({
-                        content: '保存完成',
+                        content: '成功存档',
                         time: 2
                     });
                     
@@ -1336,9 +1336,13 @@ var JuLianImageMap = (function() {
         }
         
         function onNewImageButtonClick(e) {
-            // New image - clear all and back to loading image screen
-            if(confirm('Discard all changes?')) {
-                app.setMode(null)
+
+            var index =  PL.open({
+            title: '',
+            content: '放弃所有更改？',
+            btn: ['是的', '不要'],
+            yes: function(index){
+                  app.setMode(null)
                    .setDefaultClass()
                    .setShape(null)
                    .setIsDraw(false)
@@ -1347,7 +1351,12 @@ var JuLianImageMap = (function() {
                    .hidePreview();
                 deselectAll();
                 get_image.show();
-            } 
+                
+                PL.close(index);
+            }
+          });            
+            
+            
             
             e.preventDefault();
         }
