@@ -10315,6 +10315,7 @@ var JuLianImageMap = (function() {
     var code = (function(){
         var block = utils.id('code'),
             content = utils.id('code_content'),
+            codeD = utils.id('codeD'),
             close_button = block.querySelector('.close_button');
             
         close_button.addEventListener('click', function(e) {
@@ -10325,7 +10326,8 @@ var JuLianImageMap = (function() {
         return {
             print: function() {
                 console.log(app.getHTMLCode(true));
-                content.innerHTML = app.getHTMLCode(true);
+                
+                codeD.innerHTML = app.getHTMLCode(true);
                 utils.show(block);
             },
             hide: function() {
@@ -11931,6 +11933,20 @@ var JuLianImageMap = (function() {
     };
 
 })();
+
+function copyText(obj){ 
+	try{
+		var rng = document.body.createTextRange();
+		rng.moveToElementText(obj);
+		rng.scrollIntoView();
+		rng.select();
+		rng.execCommand("Copy");
+		rng.collapse(false);
+		alert("已经复制到粘贴板!你可以使用Ctrl+V 贴到需要的地方去了哦!");
+	}catch(e){
+		alert("您的浏览器不支持此复制功能，请选中相应内容并使用Ctrl+C进行复制!");
+	}
+}
 
 ;(function(){
    

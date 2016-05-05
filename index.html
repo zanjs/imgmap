@@ -4,8 +4,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>图片热链接在线编辑器</title>
     <link rel="shortcut icon" href="/favicon.ico" />
-    <!--<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/default.min.css">
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/highlight.min.js"></script>-->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/highlight.min.js"></script>
     <link href="./build/css/app.css" type="text/css" rel="stylesheet" />
     
 </head>
@@ -50,6 +50,21 @@
 <div id="code">
     <span class="close_button" title="close"></span>
     <div id="code_content">
+        <pre><code class="xml" id="codeD">
+        &lt;!DOCTYPE html&gt;
+        &lt;title&gt;Title&lt;/title&gt;
+
+        &lt;style&gt;body {width: 500px;}&lt;/style&gt;
+
+        &lt;script type=&quot;application/javascript&quot;&gt;
+        function $init() {return true;}
+        &lt;/script&gt;
+
+        &lt;body&gt;
+        &lt;p checked class=&quot;title&quot; id=&#39;title&#39;&gt;Title&lt;/p&gt;
+        &lt;!-- here goes the rest of the page --&gt;
+        &lt;/body&gt;
+        </code></pre>
     </div>
 </div>
 
@@ -276,7 +291,6 @@
 
                     </path> 
                     </svg>
-            </div>
         </div>
         <div id="loading">加载</div>
         <div id="file_reader_support">
@@ -328,8 +342,18 @@
       图片热链接在线编辑器 @Julian
     </footer>
 </div>
+
 <script type="text/javascript" src="./build/js/P.js?v20160504"></script>
 <script type="text/javascript" src="./build/js/app.js?v20160504"></script>
 
+<script>
+  function initSnippet() {
+    var snippet = document.querySelector('#codeD');
+    hljs.highlightBlock(snippet);
+    //  hljs.initHighlightingOnLoad()
+  }
+
+  addEventListener('load', initSnippet);
+</script>
 </body>
 </html>

@@ -730,6 +730,7 @@ var JuLianImageMap = (function() {
     var code = (function(){
         var block = utils.id('code'),
             content = utils.id('code_content'),
+            codeD = utils.id('codeD'),
             close_button = block.querySelector('.close_button');
             
         close_button.addEventListener('click', function(e) {
@@ -740,7 +741,8 @@ var JuLianImageMap = (function() {
         return {
             print: function() {
                 console.log(app.getHTMLCode(true));
-                content.innerHTML = app.getHTMLCode(true);
+                
+                codeD.innerHTML = app.getHTMLCode(true);
                 utils.show(block);
             },
             hide: function() {
@@ -2346,3 +2348,4 @@ var JuLianImageMap = (function() {
     };
 
 })();
+
