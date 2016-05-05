@@ -7,6 +7,7 @@
     <!--<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/default.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/highlight.min.js"></script>-->
     <link href="./build/css/app.css" type="text/css" rel="stylesheet" />
+    
 </head>
 <body>
 <noscript>
@@ -52,20 +53,20 @@
     </div>
 </div>
 
-<!-- 编辑详情  -->
+<!-- 编辑属性 -->
 <form id="edit_details">
-    <h5>选取属性</h5>
+    <h5>编辑当前热区属性</h5>
     <span class="close_button" title="close"></span>
     <p>
         <label for="href_attr">链接(href)</label>
         <input type="text" id="href_attr" />
     </p>
-    <p>
+    <p style="display:none">
         <label for="alt_attr">alt</label>
         <input type="text" id="alt_attr" />
     </p>
     <p>
-        <label for="title_attr">title</label>
+        <label for="title_attr">鼠标悬停标题(title)</label>
         <input type="text" id="title_attr" />
     </p>
     <button id="save_details">保存</button>
@@ -327,8 +328,8 @@
       图片热链接在线编辑器 @Julian
     </footer>
 </div>
-<script type="text/javascript" src="./build/js/P.js"></script>
-<script type="text/javascript" src="./build/js/app.js"></script>
+<script type="text/javascript" src="./build/js/P.js?v20160504"></script>
+<script type="text/javascript" src="./build/js/app.js?v20160504"></script>
 
 </body>
 </html>

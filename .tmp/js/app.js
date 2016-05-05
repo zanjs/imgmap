@@ -10366,7 +10366,7 @@ var JuLianImageMap = (function() {
             obj[obj.href ? 'with_href' : 'without_href']();
             
             changedReset();
-                
+            utils.hide(form)    
             e.preventDefault();
         }
         
@@ -11121,7 +11121,8 @@ var JuLianImageMap = (function() {
             coords : this.params,
             href   : this.href,
             alt    : this.alt,
-            title  : this.title
+            title  : this.title,
+            target  : '_blank'
         };
     };
 
@@ -11425,6 +11426,7 @@ var JuLianImageMap = (function() {
             + (this.href ? ' href="' + this.href + '"' : '')
             + (this.alt ? ' alt="' + this.alt + '"' : '')
             + (this.title ? ' title="' + this.title + '"' : '')
+            + (' target="_blank" ')
             + ' />';
     };
     
@@ -11455,7 +11457,8 @@ var JuLianImageMap = (function() {
             ],
             href   : this.href,
             alt    : this.alt,
-            title  : this.title
+            title  : this.title,
+            target  : '_blank'
         };
     };
     
@@ -11644,6 +11647,7 @@ var JuLianImageMap = (function() {
             + (this.href ? ' href="' + this.href + '"' : '')
             + (this.alt ? ' alt="' + this.alt + '"' : '')
             + (this.title ? ' title="' + this.title + '"' : '')
+            + (' target="_blank" ')
             + ' />';
     };
     
@@ -11898,6 +11902,7 @@ var JuLianImageMap = (function() {
             + (this.href ? ' href="' + this.href + '"' : '')
             + (this.alt ? ' alt="' + this.alt + '"' : '')
             + (this.title ? ' title="' + this.title + '"' : '')
+            + (' target="_blank" ')
             + ' />';
     };
 
