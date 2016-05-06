@@ -744,6 +744,8 @@ var JuLianImageMap = (function() {
                 
                 codeD.innerHTML = app.getHTMLCode(true);
                 utils.show(block);
+                initSnippet();
+                
             },
             hide: function() {
                 utils.hide(block);
