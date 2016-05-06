@@ -10030,6 +10030,15 @@ var JuLianImageMap = (function() {
                 return JSON.stringify(obj);
             },
             fromJSON : function(str) {
+              
+                if(!str){
+                    PL.open({
+                        content: '未找到存档',
+                        time: 2
+                    });
+                    
+                    return 
+                }
                 var obj = JSON.parse(str);
                 
                 app.loadImage(obj.img);
