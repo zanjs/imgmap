@@ -10349,7 +10349,7 @@ var JuLianImageMap = (function() {
                     if(D("#img").attr('src')){
                         imghref = D("#img").attr('src');
                     }
-                    html_code += utils.encode('<img src="' + imghref + '" alt="" usemap="#map" />') +
+                    html_code += utils.encode('<img src="' + imghref + '" alt="" usemap="#map" onfocus="this.blur()" hidefocus="true" />') +
                         '<br />' + utils.encode('<map name="map">') + '<br />';
                     utils.foreachReverse(state.areas, function(x) {
                         html_code += '&nbsp;&nbsp;&nbsp;&nbsp;' + utils.encode(x.toString()) + '<br />';
