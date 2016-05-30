@@ -42,3 +42,28 @@
     font-size: 11px;
     line-height: 1.3;
 }
+
+
+#edmName{
+    
+    display: block;
+    margin: 10px;
+    width: 260px;
+    padding: 5px;
+}
+
+#okName{
+    display: block;
+    height: 20px;
+    line-height: 20px;
+    width: 60px;
+    text-align: center;
+    border: none;
+    padding: 5px 20px;
+    background: #FF9C08;
+    color: #fff;
+    text-transform: uppercase;
+    overflow: hidden;
+    margin: 0 auto;
+    cursor: pointer;
+}

@@ -9590,6 +9590,64 @@ function initSnippet() {
     var snippet = document.querySelector('#codeD');
     hljs.highlightBlock(snippet); 
 }
+
+function ajaxPostHtml(call) {
+   
+   getTitleFrom()
+  
+}
+
+
+function getTitleFrom() {
+    
+    
+    var pagei = PL.open({
+    type: 1, //1代表页面层
+    content: '<input type="text"  id="edmName"  placeholder="请输入 EDM 名称" ><a id="okName">确认</a>',
+    style: 'width:300px; height:90px; border:none;',
+    success: function(oPan){
+       D("#edmName").focus();
+       
+        D("#okName").on("click",function () {
+                    
+                ajaxCreate(D("#edmName").val())
+                
+                PL.close(pagei)
+        })
+      }
+    });
+    
+}
+
+
+function ajaxCreate(title) {
+    
+    var str =  D("#codeD").text();
+    
+    
+    D.ajax({
+            type: "POST",
+            url: "p.php",
+            data: "t="+ title +"&i="+str,
+            success: function(msg){
+                
+                PL.open({
+                    title: '',
+                    content: 'edm.htm 生成完成',
+                    btn: ['预览 edm', '下载  edm'],
+                    yes: function(index){
+                        window.open('./edm.html')
+                    }, no: function(){
+                        window.open('./d.php')
+                    }
+                });
+
+            }
+
+        });
+    
+    
+}
 'use strict';
 
 var JuLianImageMap = (function() {
@@ -10285,7 +10343,13 @@ var JuLianImageMap = (function() {
                     if (!state.areas.length) {
                         return '0 objects';
                     }
-                    html_code += utils.encode('<img src="' + state.image.filename + '" alt="" usemap="#map" />') +
+                    
+                    var imghref = state.image.filename;
+                    
+                    if(D("#img").attr('src')){
+                        imghref = D("#img").attr('src');
+                    }
+                    html_code += utils.encode('<img src="' + imghref + '" alt="" usemap="#map" />') +
                         '<br />' + utils.encode('<map name="map">') + '<br />';
                     utils.foreachReverse(state.areas, function(x) {
                         html_code += '&nbsp;&nbsp;&nbsp;&nbsp;' + utils.encode(x.toString()) + '<br />';
@@ -10830,6 +10894,7 @@ var JuLianImageMap = (function() {
             to_html = utils.id('to_html'),
             preview = utils.id('preview'),
             new_image = utils.id('new_image'),
+            show_edm = utils.id('show_edm'),
             show_help = utils.id('show_help');
         
         function deselectAll() {
@@ -10972,6 +11037,16 @@ var JuLianImageMap = (function() {
             e.preventDefault();
         }
         
+        function onShowEdmButtonClick(e) {
+            //  info.unload();
+            // code.print();
+            onToHtmlButtonClick(e)
+            
+            ajaxPostHtml()
+            
+            e.preventDefault();
+        }
+        
         save.addEventListener('click', onSaveButtonClick, false);
         load.addEventListener('click', onLoadButtonClick, false);
         rectangle.addEventListener('click', onShapeButtonClick, false);
@@ -10984,6 +11059,7 @@ var JuLianImageMap = (function() {
         edit.addEventListener('click', onEditButtonClick, false);
         new_image.addEventListener('click', onNewImageButtonClick, false);
         show_help.addEventListener('click', onShowHelpButtonClick, false);
+        show_edm.addEventListener('click', onShowEdmButtonClick, false);
     })();
     
     
@@ -12726,7 +12802,7 @@ module.exports = E;
         
         });    
         
-        
+       
         
         var clipboard = new Clipboard('.btn'); 
         

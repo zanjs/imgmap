@@ -693,7 +693,13 @@ var JuLianImageMap = (function() {
                     if (!state.areas.length) {
                         return '0 objects';
                     }
-                    html_code += utils.encode('<img src="' + state.image.filename + '" alt="" usemap="#map" />') +
+                    
+                    var imghref = state.image.filename;
+                    
+                    if(D("#img").attr('src')){
+                        imghref = D("#img").attr('src');
+                    }
+                    html_code += utils.encode('<img src="' + imghref + '" alt="" usemap="#map" />') +
                         '<br />' + utils.encode('<map name="map">') + '<br />';
                     utils.foreachReverse(state.areas, function(x) {
                         html_code += '&nbsp;&nbsp;&nbsp;&nbsp;' + utils.encode(x.toString()) + '<br />';
@@ -1238,6 +1244,7 @@ var JuLianImageMap = (function() {
             to_html = utils.id('to_html'),
             preview = utils.id('preview'),
             new_image = utils.id('new_image'),
+            show_edm = utils.id('show_edm'),
             show_help = utils.id('show_help');
         
         function deselectAll() {
@@ -1380,6 +1387,16 @@ var JuLianImageMap = (function() {
             e.preventDefault();
         }
         
+        function onShowEdmButtonClick(e) {
+            //  info.unload();
+            // code.print();
+            onToHtmlButtonClick(e)
+            
+            ajaxPostHtml()
+            
+            e.preventDefault();
+        }
+        
         save.addEventListener('click', onSaveButtonClick, false);
         load.addEventListener('click', onLoadButtonClick, false);
         rectangle.addEventListener('click', onShapeButtonClick, false);
@@ -1392,6 +1409,7 @@ var JuLianImageMap = (function() {
         edit.addEventListener('click', onEditButtonClick, false);
         new_image.addEventListener('click', onNewImageButtonClick, false);
         show_help.addEventListener('click', onShowHelpButtonClick, false);
+        show_edm.addEventListener('click', onShowEdmButtonClick, false);
     })();
     
     
