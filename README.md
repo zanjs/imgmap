@@ -4,4 +4,7 @@
 
 > EDM 神器
 
+## 视频
+
+[查看视频演示](http://www.bilibili.com/video/av4812550/)
 
