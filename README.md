@@ -17,6 +17,6 @@ http://img.panlidns.com/cms/en/special/css/74/images/edm/EDM.jpg
 
 
 <video width="320" height="240" controls="controls">
-  <source src="./在线生成 EDM.mp4.mp4" type="video/mp4" />
+  <source src="//nnn.li/imgmap/在线生成 EDM.mp4" type="video/mp4" />
 </video>
 
