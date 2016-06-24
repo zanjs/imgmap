@@ -18,6 +18,7 @@ header("content-type:text/html; charset=utf-8");
     $id = $getId;
     $path = "edm.html";
 
+    $urlName = str_replace(' ', '_', $getTitle);
     
 
     $fp = fopen($tmf,"r");//只读打开模板
@@ -26,6 +27,7 @@ header("content-type:text/html; charset=utf-8");
     $str = str_replace("{title}",$title,$str);//使用尖括号是在里面加内容，替换不了。
     $str = str_replace("{content}",$content,$str);//替换内容.这是替换的html里面的内容，写在body中有{content}，把content替换为新闻内容
     $str = str_replace("{id}",$id,$str);
+    $str = str_replace("{urlName}",$urlName,$str);
     
     fclose($fp);
 

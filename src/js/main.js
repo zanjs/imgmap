@@ -2,6 +2,9 @@
 (function() {
 
     D(function() {
+
+        D("#url").focus();
+
         D("#nav li,#button").click(function(e) {
 
             var whatTab = D(this).index();
@@ -31,7 +34,31 @@
 
         });
 
+        D("#get-edm").on("click", function() {
 
+
+
+            if (isLoadOld()) {
+
+                PL.open({
+                    title: '',
+                    content: '已经存在是否加载存档',
+                    btn: ['加载', '重新输入'],
+                    yes: function(index) {
+                        loadEmd();
+                    },
+                    no: function() {
+                        openFrom()
+                    }
+                });
+
+
+            }else{
+                openFrom()
+            }
+
+
+        });
 
         var clipboard = new Clipboard('.btn');
 

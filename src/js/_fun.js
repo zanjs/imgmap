@@ -5,7 +5,7 @@ function initSnippet() {
 
 function ajaxPostHtml(call) {
 
-    getTitleFrom()
+    getTitleFromT()
 
 }
 
@@ -28,6 +28,13 @@ function getTitleFrom() {
             })
         }
     });
+
+}
+
+function getTitleFromT() {
+
+
+    ajaxCreate(getCookie("edmName"), getCookie("edmId"))
 
 }
 
@@ -112,9 +119,20 @@ function openFrom() {
 
             D("#okName").on("click", function() {
 
-                ajaxCreate(D("#edmName").val(), D("#edmId").val())
+                // ajaxCreate(D("#edmName").val(), D("#edmId").val())
 
-                PL.close(pagei)
+                setCookie("edmId", D("#edmId").val(), 1);
+                setCookie("edmName", D("#edmName").val(), 1);
+
+                PL.close(pagei);
+
+                PL.load();
+
+                setTimeout(function() {
+                    PL.closeAll();
+                    loadEmd();
+                }, 500)
+
             })
         }
     });
@@ -125,10 +143,20 @@ function openFrom() {
 //加载 edm 
 function loadEmd() {
 
+
     var edmId = getCookie("edmId");
     var src = getEdmUrl(edmId);
-    D("#url").val(src);
 
-    D("#button").click();
+
+    var str = '<button class="btn" data-clipboard-text="' + src + '"> ' +
+        '复制图片地址' +
+        ' </button>';
+
+    PL.open({
+        title: '图片地址',
+        content: str
+    });
+
+
 
 }

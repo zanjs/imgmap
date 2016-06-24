@@ -1,6 +1,6 @@
 {
   "name": "imgmap",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "图片热链接地图绘制",
   "main": "index.js",
   "scripts": {
