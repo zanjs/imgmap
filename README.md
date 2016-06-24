@@ -11,6 +11,8 @@
 http://img.panlidns.com/cms/en/special/css/74/images/edm/EDM.jpg
 ```
 
+测试 EDM id号 `75`
+
 ## 视频
 
 [查看视频演示](http://www.bilibili.com/video/av4812550/)
@@ -20,3 +22,8 @@ http://img.panlidns.com/cms/en/special/css/74/images/edm/EDM.jpg
   <source src="//nnn.li/imgmap/在线生成 EDM.mp4" type="video/mp4" />
 </video>
 
+
+
+## License
+
+MIT @Julian
