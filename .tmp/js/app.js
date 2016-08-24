@@ -9657,12 +9657,12 @@ function ajaxCreate(title, id) {
 
 }
 
-//获取 emd 图片地址
+//获取 emd 图片地址 
 function getEdmUrl(eid) {
 
     var id = eid || 75;
 
-    var host = 'http://img.panlidns.com/cms/en/special/css/' + id + '/images/edm.png';
+    var host = 'http://img.panlidns.com/cms/en/special/css/' + id + '/images/edm.jpg';
 
     return host;
 }
@@ -12924,7 +12924,7 @@ module.exports = E;
                 });
 
 
-            }else{
+            } else {
                 openFrom()
             }
 
